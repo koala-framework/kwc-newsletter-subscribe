@@ -1,0 +1,17 @@
+{
+    "name": "koala-framework/kwc-newsletter-subscribe",
+    "description": "Koala Framework Component for subscribing to KWC Newsletters",
+    "homepage": "http://www.koala-framework.org/",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "koala-framework/koala-framework": "~4.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "KwcNewsletterSubscribe_": ""
+        }
+    }
+}
