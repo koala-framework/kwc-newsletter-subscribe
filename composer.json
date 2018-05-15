@@ -7,7 +7,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "koala-framework/koala-framework": "~4.3"
+        "koala-framework/koala-framework": "~4.2"
     },
     "autoload": {
         "psr-0": {
