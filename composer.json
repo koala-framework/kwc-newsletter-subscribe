@@ -9,6 +9,12 @@
     "require": {
         "koala-framework/koala-framework": "~4.1"
     },
+    "extra": {
+        "kwf-lingohub": {
+            "account": "vivid-planet",
+            "project": "kwc-newsletter-subscribe"
+        }
+    },
     "autoload": {
         "psr-0": {
             "KwcNewsletterSubscribe_": ""
