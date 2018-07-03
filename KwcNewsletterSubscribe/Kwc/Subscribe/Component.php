@@ -25,7 +25,7 @@ class KwcNewsletterSubscribe_Kwc_Subscribe_Component extends Kwc_Form_Component
     {
         parent::_initForm();
         $policyTextComponent = $this->getData()->getChildComponent('-policyText');
-        if ($policyTextComponent->hasContent()) {
+        if (!$this->getData()->getBaseProperty('kwcNewsletterSubscribe.hidePolicyText') && $policyTextComponent->hasContent()) {
             $this->getForm()->fields->add(new Kwf_Form_Field_Checkbox('policyText'))
                 ->setAllowBlank(false)
                 ->setHideLabel(true);
