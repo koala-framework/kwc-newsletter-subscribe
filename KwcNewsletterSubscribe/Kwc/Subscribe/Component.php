@@ -7,6 +7,8 @@ class KwcNewsletterSubscribe_Kwc_Subscribe_Component extends Kwc_Form_Component
         $ret['componentName'] = trlKwfStatic('Newsletter subscribe');
         $ret['placeholder']['submitButton'] = trlKwfStatic('Subscribe the newsletter');
         $ret['generators']['child']['component']['success'] = 'KwcNewsletterSubscribe_Kwc_Subscribe_Success_Component';
+        $ret['generators']['child']['component']['policyText'] = 'KwcNewsletterSubscribe_Kwc_Subscribe_PolicyText_Component';
+        $ret['extConfig'] = 'Kwc_Abstract_Composite_ExtConfigForm';
         return $ret;
     }
 
@@ -17,6 +19,29 @@ class KwcNewsletterSubscribe_Kwc_Subscribe_Component extends Kwc_Form_Component
         if (!Kwf_Config::getValue('kwcNewsletterSubscribe.apiUrl')) {
             throw new Kwf_Exception("Config setting 'kwcNewsletterSubscribe.apiUrl' is required for '$componentClass'");
         }
+    }
+
+    protected function _initForm()
+    {
+        parent::_initForm();
+        $policyTextComponent = $this->getData()->getChildComponent('-policyText');
+        if ($policyTextComponent->hasContent()) {
+            $this->getForm()->fields->add(new Kwf_Form_Field_Checkbox('policyText'))
+                ->setAllowBlank(false)
+                ->setHideLabel(true);
+        }
+    }
+
+    public function getTemplateVars(Kwf_Component_Renderer_Abstract $renderer)
+    {
+        $policyTextField = $this->getForm()->fields->getByName('policyText');
+        if ($policyTextField) {
+            $helper = new Kwf_Component_View_Helper_Component();
+            $helper->setRenderer($renderer);
+            $policyTextField
+                ->setBoxLabel($helper->component($this->getData()->getChildComponent('-policyText')));
+        }
+        return parent::getTemplateVars($renderer);
     }
 
     public function insertSubscription(array $params)
