@@ -7,7 +7,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "koala-framework/koala-framework": "~4.1"
+        "koala-framework/koala-framework": "~4.1 || ~5.0"
     },
     "extra": {
         "kwf-lingohub": {
