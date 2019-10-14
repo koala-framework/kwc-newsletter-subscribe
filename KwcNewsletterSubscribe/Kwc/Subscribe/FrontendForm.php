@@ -6,11 +6,11 @@ class KwcNewsletterSubscribe_Kwc_Subscribe_FrontendForm extends Kwf_Form
     protected function _initFields()
     {
         parent::_initFields();
-        $this->add(new Kwf_Form_Field_Radio('gender', trlKwfStatic('Gender')))
+        $this->add(new Kwf_Form_Field_Radio('gender', trlKwfStatic('Salutation')))
             ->setAllowBlank(false)
             ->setValues(array(
-                'female' => trlKwfStatic('Female'),
-                'male' => trlKwfStatic('Male')
+                'female' => trlKwfStatic('Ms'),
+                'male' => trlKwfStatic('Mr')
             ));
 
         $this->add(new Kwf_Form_Field_TextField('title', trlKwfStatic('Title')))
