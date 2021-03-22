@@ -21,6 +21,14 @@ class KwcNewsletterSubscribe_Kwc_Subscribe_Component extends Kwc_Form_Component
         }
     }
 
+    public function getSubmitDataLayer()
+    {
+        $ret = parent::getSubmitDataLayer();
+        $ret['event'] = 'form-submit';
+        $ret['formType'] = 'Newsletter';
+        return $ret;
+    }
+
     protected function _initForm()
     {
         parent::_initForm();
